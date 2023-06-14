@@ -5,16 +5,16 @@ public class WaitForExemplo {
     public static void main(String[] args) {
         try {
             // Executa um comando externo
-            Process process = Runtime.getRuntime().exec("ping google.com -t 1");
+            Process processo = Runtime.getRuntime().exec("ping google.com -t 1");
 
             // Aguarda a conclusão do processo
-             boolean exitCode = process.waitFor(4, TimeUnit.SECONDS);
+             boolean processoRetornou = processo.waitFor(4, TimeUnit.SECONDS);
 
             // Verifica o código de saída do processo
-            if (exitCode == true) {
+            if (processoRetornou) {
                 System.out.println("O processo foi concluído com sucesso.");
             } else {
-                System.out.println("O processo falhou com o código de saída: " + exitCode);
+                System.out.println("O processo falhou.");
             }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
